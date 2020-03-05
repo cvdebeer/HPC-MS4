@@ -35,6 +35,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'constellations.apps.ConstellationsConfig',
+    'events.apps.EventsConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
