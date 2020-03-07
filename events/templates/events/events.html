@@ -1,5 +1,99 @@
 {% extends 'base.html' %}
-{% block page_title %}About{% endblock %}
+{% block page_title %}Events{% endblock %}
 {% block content %}
 <h1>Events</h1>
+{% for event in events %}
+<div class="accordian" id="Eventaccordian_{{ event.id }}">
+    <div class="card mb-3">
+        <div class="row no gutters events-row">
+            <div class="col-md-2">
+                <div class="card-body date-group">
+                    <ul class="list-group  dategroup-style">
+                        <li class="list-group-item card-text month-style">
+                            {{ event.date_start|date:"M" }}
+                        </li>
+                        <li class="list-group-item card-text date-style">{{ event.date_start|date:"j" }}</li>
+                        <li class="list-group-item card-text day-style"><b>{{ event.date_start|date:"D" }}</b></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="card-body event-info">
+                    <ul class="list-group eventgroup-style">
+                        <li class="list-group-item  card-title">{{ event.event.name }}</li>
+                        <li class="list-group-item  card-text">@{{ event.location}}</li>
+                        {% if date_start == date_end %}
+                        <li class="list-group-item  card-text"><small
+                                class="text-muted">{{ event.date_start|date:"M j" }}
+                                {{ event.time_start|time:"H:i" }} - {{ event.time_end|time:"H:i" }}</small></li>
+                        {% else %}
+                        <li class="list-group-item  date-time"><small
+                                class="text-muted">{{ event.date_start|date:"M j" }}
+                                {{ event.time_start|time:"H:i" }} - {{ event.date_end|date:"M j" }}
+                                {{ event.time_end|time:"H:i" }}</small></li>
+                        {% endif %}
+                        <button class="btn btn-info event-expand" type="button" data-toggle="collapse"
+                            data-target="#description_{{ event.id }}" aria-expanded="false"
+                            aria-controls="description">More info/
+                            Booking
+                        </button>
+                </div>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div id="description_{{ event.id }}" class="collapse" aria-labelledby="headingOne"
+            data-parent="#Eventaccordian_{{ event.id }}">
+            <div class="card-body more-info">
+                <h2>Event Description</h2>
+                <p>{{ event.event.description }}</p>
+                {% if event.event.cost_participant > 0 %}
+                <p><b>Cost to Set up Constellation: </b>R{{ event.event.cost_participant }}<form method="post"
+                        action='#'>
+                        {% csrf_token %}
+                        <div class='input-group'>
+                            <input name='quantity' type='number' min='1' max='{{ event.max_attendees }}'
+                                class='form-control' placeholder='Quantity'>
+                            <span class='input-group-btn'>
+                                <button class='btn btn-success' type='submit'>Add</button>
+                            </span>
+                        </div>
+                    </form>
+                </p>
+                {% endif %}
+                {% if event.event.cost_non_participant > 0 %}
+                <p><b>Cost to Observe and Participate: </b>R{{ event.event.cost_non_participant }}<form method="post"
+                        action='#'>
+                        {% csrf_token %}
+                        <div class='input-group'>
+                            <input name='quantity' type='number' min='1' max='{{ event.max_attendees }}'
+                                class='form-control' placeholder='Quantity'>
+                            <span class='input-group-btn'>
+                                <button class='btn btn-success' type='submit'>Add</button>
+                            </span>
+                        </div>
+                    </form>
+                </p>
+                {% endif %}
+                {% if event.event.cost_trainee > 0 %}
+                <p><b>Trainee Attendance Cost: </b>{{ event.event.cost_trainee }}<form method="post" action='#'>
+                        {% csrf_token %}
+                        <div class='input-group'>
+                            <input name='quantity' type='number' min='1' max='{{ event.max_attendees }}'
+                                class='form-control' placeholder='Quantity'>
+                            <span class='input-group-btn'>
+                                <button class='btn btn-success' type='submit'>Add</button>
+                            </span>
+                        </div>
+                    </form>
+                </p>
+                {% endif %}
+            </div>
+            <div class=" card-body">
+                <a class="btn btn-info" href=#">Go to Booking Cart</a>
+            </div>
+        </div>
+    </div>
+</div> {% endfor %}
 {% endblock %}

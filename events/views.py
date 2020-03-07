@@ -1,5 +1,10 @@
 from django.shortcuts import render
+from .models import Event, EventType
+from django.views.generic import ListView
 
 
-def events(request):
-    return render(request, 'events/events.html')
+class EventsListView(ListView):
+    model = Event
+    template_name = 'events/events.html'
+    context_object_name = 'events'
+    ordering = ['date_start']

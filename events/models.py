@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import date, datetime
+from django.utils import timezone
 
 
 class EventType(models.Model):
@@ -24,10 +24,10 @@ class EventType(models.Model):
 
 class Event(models.Model):
     event = models.ForeignKey(EventType, on_delete=models.CASCADE)
-    date_start = models.DateField()
-    date_end = models.DateField()
-    time_start = models.TimeField()
-    time_end = models.TimeField()
+    date_start = models.DateField(default=timezone.now)
+    date_end = models.DateField(default=timezone.now)
+    time_start = models.TimeField(default=timezone.now)
+    time_end = models.TimeField(default=timezone.now)
     location = models.CharField(
         default='The Ridge Wellness Center, 1 Ateljee Street, Randpark Ridge', max_length=255)
     facilitator = models.CharField(default='Sonja Simak', max_length=50)

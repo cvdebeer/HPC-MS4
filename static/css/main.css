@@ -104,3 +104,75 @@ h6 {
 #profile-content {
     font-size: 40px;
 }
+
+/* --Style Events -- */
+.events-row {
+    background-color: #606E79;
+}
+
+.date-group {
+    width: 125px;
+    text-align: center;
+    height: 187px
+}
+
+.dategroup-style,
+.eventgroup-style {
+    padding: 1px;
+    border-radius: 10px;
+    border: #606E79 1px solid;
+}
+
+.list-group-item {
+    border: none;
+}
+
+.month-style {
+    background-color: #6DA3B1;
+    vertical-align: middle;
+    font-size: 20px;
+    letter-spacing: .2em;
+    padding: .2em;
+    text-transform: uppercase;
+    color: #EBEBEA;
+}
+
+.date-style {
+    font-size: 35px;
+    padding: 1px;
+}
+
+.day-style {
+    font-size: 20px;
+    padding: 1px;
+}
+
+.event-info {
+    text-align: left;
+    padding: 0 20 0 20;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+    padding: 5px;
+}
+
+.card-text {
+    padding: 5px;
+}
+
+.event-info {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.event-expand {
+    background-color: #6DA3B1;
+}
+
+.more-info {
+    font-size: 18px;
+}
