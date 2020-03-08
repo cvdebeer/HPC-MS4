@@ -4,8 +4,6 @@ from django.utils import timezone
 
 class EventType(models.Model):
     Categories = models.TextChoices('Categories', 'Training Workshop')
-    AttendeeType = models.TextChoices(
-        'AttendeeType', 'Participant Non-Participant Trainee')
 
     name = models.CharField(max_length=100)
     category = models.CharField(
