@@ -37,6 +37,20 @@ h6 {
     font-size: 20px;
 }
 
+a.cart {
+    padding-top: 5px;
+    color: #107A7A;
+}
+
+a.cart:hover {
+    color: #6DA3B1;
+}
+
+.cart .badge-warning {
+    color: #EBEBEA;
+    background-color: #606E79;
+}
+
 .site-header .navbar-nav .nav-link {
     color: #191820;
 }
@@ -65,7 +79,29 @@ h6 {
     border-radius: 10px;
 }
 
+.navbar-toggler-icon {
+    background-color: #107A7A;
+}
+
+#hpc1 {
+    color: #107A7A;
+}
+
+#hpc2 {
+    color: #6DA3B1;
+}
+
+#hpc3 {
+    color: #107A7A;
+
+}
+
 /* --Main Body  -- */
+#main-content {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
 #main-body {
     margin-top: 3rem;
     padding-top: 1rem;
@@ -78,11 +114,11 @@ h6 {
 
 .sidebar-section {
     margin-top: 50px;
-    margin-left: 5px;
+    margin-left: 35px;
     border-radius: 10px;
     font-size: 20px;
     max-width: 300px;
-    margin-left: 10px;
+
 }
 
 #sidebar-style .list-group-item-light {
@@ -175,4 +211,104 @@ h6 {
 
 .more-info {
     font-size: 18px;
+}
+
+/*--Home Page-- */
+
+
+/* // Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    ...
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    ...
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    ...
+} */
+
+.pic-discription {
+    height: 200px;
+    background-color: #606E79;
+    color: #EBEBEA;
+    border-radius: 10;
+}
+
+.pic-discription-light {
+    height: 250px;
+    background-color: #6DA3B1;
+    color: #EBEBEA;
+    border-radius: 10;
+    padding-top: 10px
+}
+
+
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+#question {
+    max-height: 200px;
+}
+
+.img-adjust {
+    max-width: 300px;
+    max-height: 200px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.home-text {
+    padding: 15px;
+    font-size: 25px;
+}
+
+#last-p {
+    font-size: 25px;
+}
+
+@media (min-width: 692px) and (max-width: 792) {
+    .img-adjust {
+        max-width: 275px;
+    }
+
+    .home-text {
+        padding: 15px;
+        font-size: 22px;
+    }
+
+    #last-p {
+        font-size: 22px;
+    }
+}
+
+
+/* ----------------------------------------------------Cart ---------------------------------------------------*/
+.panel-display {
+    padding: 15px;
+    border: 1px solid;
+    margin: 10px;
+    border-radius: 10px;
+
+}
+
+.btn-primary {
+    color: #EBEBEA;
+    background-color: #107A7A;
+    border-color: #107A7A;
+}
+
+.btn-info {
+    color: #EBEBEA;
+    background-color: #6DA3B1;
+    border-color: #6DA3B1;
 }
