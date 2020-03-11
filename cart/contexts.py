@@ -9,6 +9,7 @@ def cart_contents(request):
     cart = request.session.get('cart', {})
 
     cart_items = []
+    total = 0
     total_participant = 0
     total_non_participant = 0
     total_trainee = 0

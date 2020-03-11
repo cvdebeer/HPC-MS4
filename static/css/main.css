@@ -312,3 +312,21 @@ a.cart:hover {
     background-color: #6DA3B1;
     border-color: #6DA3B1;
 }
+
+.tally-box {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-indent: 1em;
+    padding: 5px;
+}
+
+#checkout-btn {
+    margin-left: 10px;
+    text-indent: 0;
+    padding: 5px;
+    font-size: 20px;
+    background-color: #606E79;
+    border-color: #107A7A;
+
+}
