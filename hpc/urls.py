@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('constellations.urls')),
     path('events/', include('events.urls')),
     path('cart/', include('cart.urls')),
+    path('checkout/', include('checkout.urls')),
 ]
 
 if settings.DEBUG:

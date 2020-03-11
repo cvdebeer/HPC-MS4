@@ -9,7 +9,7 @@ class MakePaymentForm(forms.Form):
 
     credit_card_number = forms.CharField(
         label="Credit Card Number", required=False)
-    cvv = forms.CharField(label='Security code (CVV', required=False)
+    cvv = forms.CharField(label='Security code (CVV)', required=False)
     expiry_month = forms.ChoiceField(
         label='Month', choices=MONTH_CHOICES, required=False)
     expiry_year = forms.ChoiceField(
@@ -20,4 +20,4 @@ class MakePaymentForm(forms.Form):
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ('full_name', 'email', 'add_to_mailing_list' 'phone')
+        fields = ('full_name', 'email', 'add_to_mailing_list', 'phone')

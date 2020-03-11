@@ -6,7 +6,7 @@ class Booking(models.Model):
     full_name = models.CharField(max_length=255, blank=False)
     email = models.EmailField(max_length=254)
     add_to_mailing_list = models.BooleanField(default=False)
-    phone = models.CharField(max_length=10)
+    phone = models.CharField(max_length=10, blank=True)
     date = models.DateField()
 
     def __str__(self):
