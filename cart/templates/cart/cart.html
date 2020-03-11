@@ -68,7 +68,7 @@
 <div class='row tally-box'>
     <p class=''>Total: </p>
     <p>R {{ total }} </p>
-    <a href="#" id="checkout-btn" class='btn btn-success' role='button'><span class='glyphicon glyphicon-ok-sign'
+    <a href="{% url 'checkout'%}" id="checkout-btn" class='btn btn-success' role='button'><span class='glyphicon glyphicon-ok-sign'
             aria-hidden='true'></span>Checkout</a>
 </div>
 {% endblock content %}

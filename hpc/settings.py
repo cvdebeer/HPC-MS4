@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'constellations.apps.ConstellationsConfig',
     'events.apps.EventsConfig',
     'cart.apps.CartConfig',
+    'checkout.apps.CheckoutConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -143,3 +144,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
+
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET')
