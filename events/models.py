@@ -2,22 +2,27 @@ from django.db import models
 from django.utils import timezone
 
 
+class AttendeeType(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
+
 class EventType(models.Model):
     Categories = models.TextChoices('Categories', 'Training Workshop')
 
     name = models.CharField(max_length=100)
     category = models.CharField(
-        blank=True, choices=Categories.choices, max_length=8)
+        blank=True, choices=Categories.choices, max_length=20)
+    attendee = models.ForeignKey(AttendeeType, on_delete=models.CASCADE)
     description = models.CharField(max_length=150)
-    cost_participant = models.DecimalField(
-        default=0.00, max_digits=7, decimal_places=2)
-    cost_non_participant = models.DecimalField(
-        default=0.00, max_digits=7, decimal_places=2)
-    cost_trainee = models.DecimalField(
+    price = models.DecimalField(
         default=0.00, max_digits=7, decimal_places=2)
 
     def __str__(self):
-        return self.name
+        return "{0} - {1}".format(self.name, self.attendee)
 
 
 class Event(models.Model):
