@@ -1,11 +1,13 @@
-from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.contrib import messages
-from .forms import MakePaymentForm, BookingForm
-from django.conf import settings
-from django.utils import timezone
-from events.models import Event, EventType
-from .models import Booking, BookingLineItem
 import stripe
+from django.conf import settings
+from django.contrib import messages
+from django.shortcuts import get_object_or_404, redirect, render, reverse
+from django.utils import timezone
+
+from events.models import Event, EventType
+
+from .forms import BookingForm, MakePaymentForm
+from .models import BookingLineItem
 
 stripe.api_key = settings.STRIPE_SECRET
 
@@ -35,7 +37,7 @@ def checkout(request):
             try:
                 customer = stripe.Charge.create(
                     amount=int(total * 100),
-                    currency='ZAR',
+                    currency="EUR",
                     description=request.user.email,
                     card=payment_form.cleaned_data['stripe_id'],
                 )
@@ -51,8 +53,8 @@ def checkout(request):
         else:
             print(payment_form.errors)
             messages.error(
-                request, 'We were unable to tkae a payment with that card!')
+                request, 'We were unable to take a payment with that card!')
     else:
         payment_form = MakePaymentForm()
         booking_form = BookingForm()
-    return render(request, 'checkout.html', {'booking_form': booking_form, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
+    return render(request, 'checkout/checkout.html', {'booking_form': booking_form, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})

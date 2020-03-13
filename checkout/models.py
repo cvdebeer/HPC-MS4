@@ -19,4 +19,4 @@ class BookingLineItem(models.Model):
     quantity = models.IntegerField(blank=False)
 
     def __str__(self):
-        return "{0} {1} @ {2}, {3}, {4}".format(self.quantity, self.event.event.name, self.event.event.cost_participant, self.event.event.cost_non_participant, self.event.event.cost_trainee)
+        return "{0} {1} @ {2}".format(self.quantity, self.event.event.name, self.event.event.price)
