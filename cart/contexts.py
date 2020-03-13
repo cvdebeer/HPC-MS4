@@ -10,16 +10,10 @@ def cart_contents(request):
 
     cart_items = []
     total = 0
-    total_participant = 0
-    total_non_participant = 0
-    total_trainee = 0
     event_count = 0
     for id, quantity in cart.items():
         event = get_object_or_404(Event, pk=id)
-        total_participant += quantity * event.event.cost_participant
-        total_non_participant += quantity * event.event.cost_non_participant
-        total_trainee += quantity * event.event.cost_trainee
-        total = total_participant + total_non_participant + total_trainee
+        total += quantity * event.event.price
         event_count += quantity
         cart_items.append({'id': id, 'quantity': quantity, 'event': event})
 
