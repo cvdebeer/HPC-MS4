@@ -27,7 +27,7 @@
               id='hpc3'><em>CONSTELLATIONS</em></span></span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
           aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarToggle">
           <div class="navbar-nav mr-auto">
@@ -46,7 +46,7 @@
             <a class="nav-item nav-link" href="{% url 'login' %}">Student Login</a>
             {% endif %}
             <a class="nav-item nav-link" href="{% url 'courses' %}">Courses</a>
-            <a class="cart" href="{% url 'view-cart' %}">
+            <a class="nav-item nav-link cart" href="{% url 'view-cart' %}">
               <i class="fas fa-shopping-cart"></i>
               {% if event_count > 0 %}
               <label class="badge badge-warning">{{ event_count }}</label>
