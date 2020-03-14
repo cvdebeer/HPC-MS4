@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block page_title %}Testimonial{% endblock %}
+{% block content %}
+{% for user in profile %}
+{% if user.testimonial != '' %}
+<div id='profile-content'>
+   <div class="media">
+      <img class="rounded-circle profile-img" src="{{ user.image.url }}" alt='profile picture'>
+      <div class="media-body">
+         <h2 class="account-heading">{{ user.user }}</h2>
+         
+         <p class="text-secondary"><b>Testimonial:</b></p>
+         <p>{{ user.testimonial }}</p>
+      </div>      
+   </div>
+
+</div>
+{% endif %}
+{% endfor %}
+{% endblock content %}
