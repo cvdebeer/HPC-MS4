@@ -2,6 +2,7 @@
 {% load crispy_forms_tags %}
 {% block page_title %}Student Profile{% endblock %}
 {% block content %}
+<div class='container form-style'>
 <div class="media">
    <img class="rounded-circle profile-img" src="{{ user.profile.image.url }}" alt='profile picture'>
    <div class="media-body">
@@ -19,4 +20,5 @@
       <button class="btn btn-info" type="submit">Update</button>
    </div>
 </form>
+</div>
 {% endblock content %}
