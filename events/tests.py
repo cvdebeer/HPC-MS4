@@ -1,46 +1,64 @@
 from django.test import TestCase
-from .models import Event, EventType
+from .models import Event, EventType, AttendeeType
+
+
+class TestAttendeeType(TestCase):
+    def test_attendee(self):
+        attendee = AttendeeType(name='Test')
+        attendee.save()
+        self.assertEqual(attendee.name, 'Test')
 
 
 class TestEventTypeModel(TestCase):
     def test_defaults(self):
-        item = EventType(name='event')
+        attendee = AttendeeType(name='trainee')
+        attendee.save()
+        item = EventType(name='event', attendee=attendee)
         item.save()
         self.assertEqual(item.name, 'event')
         self.assertFalse(item.category)
+        self.assertTrue(item.attendee)
         self.assertFalse(item.description)
-        self.assertEqual(item.cost_participant, 0)
-        self.assertEqual(item.cost_non_participant, 0)
-        self.assertEqual(item.cost_trainee, 0)
+        self.assertEqual(item.price, 0)
 
     def test_categories(self):
-        item = EventType(name='event', category='Training')
+        attendee = AttendeeType(name='trainee')
+        attendee.save()
+        item = EventType(name='event', attendee=attendee, category='Training')
         item.save()
         self.assertTrue(item.category)
         self.assertEqual(item.category, 'Training')
 
     def test_description(self):
-        item = EventType(name='event', description='Testing')
+        attendee = AttendeeType(name='trainee')
+        attendee.save()
+        item = EventType(name='event', attendee=attendee,
+                         description='Testing')
         item.save()
         self.assertTrue(item.description)
         self.assertEqual(item.description, 'Testing')
 
-    def test_costs(self):
-        item = EventType(name='event', cost_participant=10.00,
-                         cost_non_participant=20.00, cost_trainee=1)
+    def test_price(self):
+        attendee = AttendeeType(name='trainee')
+        attendee.save()
+        item = EventType(name='event', attendee=attendee, price=10)
         item.save()
-        self.assertEqual(item.cost_participant, 10.00)
-        self.assertEqual(item.cost_non_participant, 20.00)
-        self.assertEqual(item.cost_trainee, 1.00)
+        self.assertEqual(item.price, 10.00)
 
 
 class TestEventModel(TestCase):
     def setUp(self):
-        event = EventType.objects.create(name='event', category='Training')
+        attendee = AttendeeType(name='trainee')
+        attendee.save()
+        event = EventType.objects.create(
+            name='event', category='Training', attendee=attendee)
         Event.objects.create(event=event)
 
     def test_event_defaults(self):
-        event = EventType.objects.get(name='event', category='Training')
+        attendee = AttendeeType.objects.get(name='trainee')
+        attendee.save()
+        event = EventType.objects.get(
+            name='event', category='Training',  attendee=attendee)
         item = Event.objects.get(event=event)
         event.save()
         item.save()
