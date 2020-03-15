@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Q
 from django.utils import timezone
 
 
@@ -8,6 +9,19 @@ class AttendeeType(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class EventTypeManager(models.Manager):
+    def search(self, query=None):
+        qs = self.get_queryset()
+        if query is not None:
+            or_lookup = (Q(name__icontains=query) |
+                         Q(description__icontains=query) |
+                         Q(category__icontains=query)
+                         )
+            # distinct() is often necessary with Q lookups
+            qs = qs.filter(or_lookup).distinct()
+        return qs
 
 
 class EventType(models.Model):
@@ -21,8 +35,31 @@ class EventType(models.Model):
     price = models.DecimalField(
         default=0.00, max_digits=7, decimal_places=2)
 
+    objects = EventTypeManager()
+
     def __str__(self):
         return "{0} - {1}".format(self.name, self.attendee)
+
+
+'''
+The entire Search app was copied and adjusted for this project from a tutorial by codingforentrepeneurs.com - https://www.codingforentrepreneurs.com/blog/a-multiple-model-django-search-engine/
+
+An issue creating an "Related Field has invalid lookup: icontains" was resolved with the help of stack overflow- https://stackoverflow.com/questions/11754877/troubleshooting-related-field-has-invalid-lookup-icontains
+'''
+
+
+class EventManager(models.Manager):
+    def search(self, query=None):
+        qs = self.get_queryset()
+        if query is not None:
+            or_lookup = (Q(event__name__icontains=query) |
+                         Q(date_start__icontains=query) |
+                         Q(facilitator__icontains=query) |
+                         Q(location__icontains=query)
+                         )
+            # distinct() is often necessary with Q lookups
+            qs = qs.filter(or_lookup).distinct()
+        return qs
 
 
 class Event(models.Model):
@@ -35,6 +72,8 @@ class Event(models.Model):
         default='The Ridge Wellness Center, 1 Ateljee Street, Randpark Ridge', max_length=255)
     facilitator = models.CharField(default='Sonja Simak', max_length=50)
     max_attendees = models.IntegerField(default=15)
+
+    objects = EventManager()
 
     def __str__(self):
         return "{0}, {1}".format(self.date_start, self.event.name)

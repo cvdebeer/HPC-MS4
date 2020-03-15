@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'events.apps.EventsConfig',
     'cart.apps.CartConfig',
     'checkout.apps.CheckoutConfig',
+    'search.apps.SearchConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
