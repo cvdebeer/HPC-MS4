@@ -4,36 +4,39 @@
 {% block content %}
 <h1>Life is complicated!</h1>
 <div class="row h-p">
-    <div class="col-md-4 hp-text">
+    <div class="col-md-4  hp-text">
         <div class="word-wrap">Are you feeling disconnected from your friends and family?
         </div>
     </div>
-    <div class="col-md-4 img-style"><img class="hp-img" src="{% static 'img/sad-face.jpg' %}" alt="sad face"></div>
+    <div class="col-md-4 offset-md-1 img-style"><img class="hp-img" src="{% static 'img/sad-face.jpg' %}"
+            alt="sad face"></div>
 </div>
 <div class="row h-p ">
-    <div class="col-md-4 img-style"><img class="hp-img" src="{% static 'img/male.jpg' %}" alt="male"></div>
-    <div class="col-md-4 hp-text-other">
+    <div class="col-md-4 offset-md-1 img-style"><img class="hp-img" src="{% static 'img/male.jpg' %}" alt="male"></div>
+    <div class="col-md-3 offset-md-1 hp-text-other">
         <div class="word-wrap">Are you in pain, but don't know where it's coming from?
         </div>
     </div>
 </div>
 <div class="row h-p ">
-    <div class="col-md-4 hp-text">
+    <div class="col-md-3 hp-text">
         <div class="word-wrap">Have you experienced some unresolved trauma?</div>
     </div>
-    <div class="col-md-4 img-style"><img class="hp-img" src="{% static 'img/baby.jpg' %}" alt="baby"></div>
+    <div class="col-md-4 offset-md-2 img-style"><img class="hp-img" src="{% static 'img/baby.jpg' %}" alt="baby"></div>
 </div>
 <div class="row h-p ">
-    <div class="col-md-4 img-style"><img class="hp-img" src="{% static 'img/question.png' %}" alt="question"></div>
-    <div class="col-md-4 hp-text-other">
+    <div class="col-md-3 offset-md-2 img-style"><img class="hp-img" src="{% static 'img/question.png' %}"
+            alt="question"></div>
+    <div class="col-md-3 offset-md-0 hp-text-other">
         <div class="word-wrap">Wondering what the next step is in your life?</div>
     </div>
 </div>
 <hr>
 
 <div class="row h-p ">
-    <div class="col-md-4 img-style"><img class="hp-img" src="{% static 'img/puzzle.jpg' %}" alt="puzzle"></div>
-    <div class="col-md-4 hp-text2-other">
+    <div class="col-md-4 offset-md-0 img-style"><img class="hp-img" src="{% static 'img/puzzle.jpg' %}" alt="puzzle">
+    </div>
+    <div class="col-md-4 offset-md-1 hp-text2-other">
         <div class="word-wrap-2" id='puzzle-text'>Family constellations may provide the insights and resolutions needed
             to bring
             your life back into flow!</div>
@@ -43,11 +46,12 @@
     <div class="col-md-4 hp-text2">
         <div class="word-wrap-2">You will feel less burdened!</div>
     </div>
-    <div class="col-md-4 img-style"><img class="hp-img" src="{% static 'img/coffee-cup.jpg' %}" alt="coffee-cup"></div>
+    <div class="col-md-4 offset-md-1  img-style"><img class="hp-img" src="{% static 'img/coffee-cup.jpg' %}"
+            alt="coffee-cup"></div>
 </div>
 <div class="row h-p ">
-    <div class="col-md-4 img-style"><img class="hp-img" src="{% static 'img/girls.jpg' %}" alt="girls"></div>
-    <div class="col-md-4 hp-text2-other">
+    <div class="col-md-4  mg-style"><img class="hp-img" src="{% static 'img/girls.jpg' %}" alt="girls"></div>
+    <div class="col-md-4 offset-md-2 hp-text2-other">
         <div class="word-wrap-2">Your relationships will be different and more relaxed and happy!</div>
     </div>
 </div>
@@ -57,7 +61,8 @@
             appear to meet
             your needs more!</div>
     </div>
-    <div class="col-md-4 img-style"><img class="hp-img" src="{% static 'img/family.jpg' %}" alt="family"></div>
+    <div class="col-md-4 offset-md-1 img-style"><img class="hp-img" src="{% static 'img/family.jpg' %}" alt="family">
+    </div>
 </div>
 
 {% endblock %}

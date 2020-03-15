@@ -3,10 +3,12 @@ from django.contrib import messages
 from .models import MailingList
 from .forms import MailingListForm
 from accounts.models import Profile
+from events.models import EventType
 
 
 def home(request):
-    return render(request, 'constellations/index.html')
+    profile = Profile.objects.all()
+    return render(request, 'constellations/index.html', {'profile': profile})
 
 
 def about(request):
@@ -14,7 +16,8 @@ def about(request):
 
 
 def courses(request):
-    return render(request, 'constellations/courses.html')
+    course = EventType.objects.all()
+    return render(request, 'constellations/courses.html', {'course': course})
 
 
 def mailing_list(request):

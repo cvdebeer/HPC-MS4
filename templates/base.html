@@ -61,7 +61,7 @@
 
   <main role="main" class="container-fluid">
     <div class="row" id="main-content">
-      <div class="col-md-8" id="main-body">
+      <div class="col-md-9" id="main-body">
         {% if messages %}
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }}">
@@ -71,19 +71,21 @@
         {% endif %}
         {% block content %}{% endblock %}
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
+        <div class="container-fluid  justify-content-center">
         <div class="sidebar-section">
           <ul class="list-group" id="sidebar-style">
             <li class="list-group-item list-group-item-light"><a href="{% url 'mailing-list' %}">Join our mailing list</a></li>
             <li class="list-group-item list-group-item-light">
-              <form class="form-inline" action="#" method='get'>
-                <input class="form-control mr-sm-2" name='q' type="text" placeholder="Search" aria-label="Search">
+              <form class="form-inline" action="{% url 'search' %}" method='GET'>
+                <input class="form-control mr-sm-2" name='q' type="text" placeholder="Search" aria-label="Search" value='{{ request.GET.q }}'>
                 <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
               </form>
             </li>
             <li class="list-group-item list-group-item-light"><a href="{% url 'testimonials' %}">Student Testimonials</a></li>
           </ul>
           </p>
+          </div>         
         </div>
       </div>
     </div>

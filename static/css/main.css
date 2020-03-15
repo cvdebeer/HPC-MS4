@@ -200,12 +200,31 @@ a.cart:hover {
     color: #EBEBEA;
 }
 
+
 .sidebar-section {
     margin-top: 50px;
-    margin-left: 35px;
     border-radius: 10px;
     font-size: 20px;
-    max-width: 300px;
+}
+
+
+@media (min-width: 692px) {
+    .sidebar-section {
+        margin-left: 0px;
+    }
+}
+
+@media (min-width: 692px) {
+    #sidebar-style .form-inline .form-control {
+        width: 100px;
+    }
+}
+
+
+@media (min-width: 992px) {
+    #sidebar-style .form-inline .form-control {
+        width: 150px;
+    }
 }
 
 
@@ -222,28 +241,114 @@ a.cart:hover {
     color: #EBEBEA;
 }
 
-/* Profile Page */
+/* ---------------------------------------------------Profile Page-------------------------------------------------------------------------- */
 .profile-img {
-    height: 125px;
-    width: 125px;
+    height: 50px;
+    width: 50px;
     margin-right: 20px;
     margin-bottom: 16px;
 }
 
-#profile-content {
-    font-size: 40px;
+@media (min-width: 576px) {
+    .profile-img {
+        height: 75px;
+        width: 75px;
+    }
 }
 
-/* --Style Events -- */
+@media (min-width: 576px) {
+    .profile-img {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+#profile-content {
+    font-size: 16px;
+    background-color: #EBEBEA;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px;
+}
+
+@media (min-width: 576px) {
+    #profile-content {
+        font-size: 20px;
+    }
+}
+
+#profile-content h2 {
+    font-size: 20px;
+    color: #606E79;
+
+}
+
+@media (min-width: 576px) {
+    #profile-content {
+        font-size: 25px;
+    }
+}
+
+@media (min-width: 576px) {
+    #profile-content h2 {
+        font-size: 25px;
+    }
+}
+
+@media (min-width: 768px) {
+    #profile-content h2 {
+        font-size: 30px;
+    }
+}
+
+/* -----------------------------------------------------Style Events ------------------------------------------------------------ */
 .events-row {
     background-color: #606E79;
+    border-radius: 10px;
+}
+
+@media (min-width: 576px) {
+    .events-row {
+        flex-wrap: nowrap;
+    }
+}
+
+@media (min-width: 692px) {
+    .events-row {
+        flex-wrap: wrap;
+    }
 }
 
 .date-group {
-    width: 125px;
+    width: auto;
     text-align: center;
     height: 187px
 }
+
+@media (min-width: 576px) {
+    .date-group {
+        min-width: 125px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+@media (min-width: 692px) {
+    .date-group {
+        min-width: 100px;
+        padding-left: 1px;
+        padding-right: 15px;
+    }
+}
+
+@media (min-width: 692px) {
+    .date-group {
+        min-width: 125px;
+        padding-left: 1px;
+        padding-right: 15px;
+    }
+}
+
 
 .dategroup-style,
 .eventgroup-style {
@@ -281,6 +386,26 @@ a.cart:hover {
     padding: 0 20 0 20;
 }
 
+@media (min-width: 576px) {
+    .event-info {
+        min-width: 400px;
+    }
+}
+
+
+@media (min-width: 992px) {
+    .event-info {
+        min-width: 550px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .event-info {
+        min-width: 750px;
+    }
+}
+
+
 .card-title {
     font-size: 20px;
     font-weight: 600;
@@ -306,7 +431,7 @@ a.cart:hover {
     font-size: 18px;
 }
 
-/*--Home Page-- */
+/*------------------------------------------------------Home Page------------------------------------------------------------------------ */
 
 
 .word-wrap,
@@ -513,8 +638,83 @@ a.cart:hover {
     text-align: center;
 }
 
+/*------------------------------------------------------About Page & Courses Accordion------------------------------------------------------------------------ */
+#accordionAbout,
+#accordionExperience {
+    text-decoration: none;
+    border-radius: 15px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(25, 24, 32, 0.32);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(25, 24, 32, 0.32);
+    box-shadow: 10px 10px 5px 0px rgba(25, 24, 32, 0.32);
 
-/* ----------------------------------------------------Cart ---------------------------------------------------*/
+}
+
+#accordionAbout h2 {
+    font-size: 25px;
+}
+
+#accordionAbout p,
+#accordionExperience p {
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+}
+
+@media (min-width: 576px) {
+    #accordionAbout p {
+        font-size: 20px;
+    }
+}
+
+#accordionAbout .card-body,
+#accordionExperience .card-body {
+    background-color: #6DA3B1;
+    color: #EBEBEA;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+}
+
+@media (min-width: 576px) {
+    #accordionExperience .card-body {
+        font-size: 20px;
+    }
+}
+
+#accordionAbout .btn-link,
+#accordionExperience .btn-link {
+    color: #107A7A;
+}
+
+/*------------------------------------------------------ Courses --------------------------------------------------------------------------- */
+
+.experience {
+    background-color: #6DA3B1;
+    color: #EBEBEA;
+    padding: 10px;
+}
+
+.experience b {
+    color: #191820;
+}
+
+@media (min-width: 576px) {
+    .experience p {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 576px) {
+    .experience li {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 576px) {
+    #accordionExperience h5 {
+        font-size: 25px;
+    }
+}
+
+/* ----------------------------------------------------Cart ---------------------------------------------------------------------------------*/
 .panel-display {
     padding: 15px;
     border: 1px solid;
@@ -556,4 +756,37 @@ a.cart:hover {
 /*----------------------------------------------------------------------Checkout-------------------------------------*/
 .form-check-label {
     font-size: 20px;
+}
+
+
+
+/*---------------------------------------------------------------------Form Styling-------------------------------*/
+.form-style {
+    background-color: #EBEBEA;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* --------------------------------------------------------------Info-block containers---------------------------------*/
+.info-block {
+    background-color: #606E79;
+    color: #EBEBEA;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.info-block a {
+    color: #6DA3B1;
+}
+
+@media (min-width: 576px) {
+    .info-block a {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 576px) {
+    .info-block a {
+        font-size: 18px;
+    }
 }
