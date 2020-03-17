@@ -223,7 +223,7 @@ a.cart:hover {
 
 @media (min-width: 992px) {
     #sidebar-style .form-inline .form-control {
-        width: 150px;
+        width: auto;
     }
 }
 
@@ -429,6 +429,12 @@ a.cart:hover {
 
 .more-info {
     font-size: 18px;
+}
+
+.btn-outline-info {
+    color: #EBEBEA;
+
+    border-color: #EBEBEA;
 }
 
 /*------------------------------------------------------Home Page------------------------------------------------------------------------ */
