@@ -2,13 +2,13 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import MailingList
 from .forms import MailingListForm
-# from accounts.models import Profile
+from accounts.models import Profile
 from django.views.generic import ListView
 from events.models import EventType
 
 
 def home(request):
-    # profile = Profile.objects.all()
+    profile = Profile.objects.all()
     return render(request, 'constellations/index.html')
     '''{'profile': profile}'''
 
@@ -39,8 +39,8 @@ def mailing_list(request):
     return render(request, 'constellations/mailing_list.html', {'form': form})
 
 
-# class student_testimonials(ListView):
-#     model = Profile
-#     template_name = 'constellations/testimonials.html'
-#     context_object_name = 'profiles'
-#     paginate_by = 5
+class student_testimonials(ListView):
+    model = Profile
+    template_name = 'constellations/testimonials.html'
+    context_object_name = 'profiles'
+    paginate_by = 5
