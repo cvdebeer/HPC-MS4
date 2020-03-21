@@ -32,31 +32,43 @@
     <p>Total</p>
     <p>R {{ total }}</p>
 </div>
+{% if user.is_authenticated and total == 0 %}
 <form role='form' method='post' id="payment-form" action="{% url 'checkout' %}">
     <legend>
-        <h3>Payment Details</h3>
+        <h3>Booking details:</h3>
     </legend>
     <div id='credit-card-errors' style='display:none'>
         <div class='alert-message block-message error' id='stripe-error-message'>
         </div>
     </div>
-
+    {% csrf_token %}    
     <div class="row">
-
-        <div class='form-group col-md-5'>
-            <h4>Booking details:</h4>
+        <div class='form-group col-md-5'>            
             {{ booking_form|crispy }}
         </div>
-
-        <div class='form-group col-md-5 offset-md-1'>
-            <h4>card information:</h4>
-            {{ payment_form|crispy }}
+    </div>
+    <button class="btn btn-info" type='submit'> Book your place</button>
+</form>
+{% else %}
+<form role='form' method='post' id="payment-form" action="{% url 'checkout' %}">
+    <legend>
+        <h3>Booking details:</h3>
+    </legend>
+    <div id='credit-card-errors' style='display:none'>
+        <div class='alert-message block-message error' id='stripe-error-message'>
         </div>
     </div>
-    {% csrf_token %}
-    <div class='form-group col-md-12'>
-        <input class='btn btn-primary' id='submit_payment_btn' name='commit' type='submit' value='Submit Payment'>
+    {% csrf_token %}    
+    <div class="row">
+        <div class='form-group col-md-5'>            
+            {{ booking_form|crispy }}
+        </div>
     </div>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="{{ publishable }}"
+          data-description="HealingPoint Constellations R{{total}}"
+          data-amount="{{ amount }}"
+          data-locale="auto"></script>       
 </form>
-
+{% endif %}
 {% endblock content %}

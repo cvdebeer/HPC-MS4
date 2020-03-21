@@ -15,9 +15,8 @@ stripe.api_key = settings.STRIPE_SECRET
 def checkout(request):
     if request.method == "POST":
         booking_form = BookingForm(request.POST)
-        payment_form = MakePaymentForm(request.POST)
 
-        if booking_form.is_valid() and payment_form.is_valid():
+        if booking_form.is_valid():
             booking = booking_form.save(commit=False)
             booking.date = timezone.now()
             booking.save()
@@ -26,7 +25,7 @@ def checkout(request):
             total = 0
             for id, quantity in cart.items():
                 event = get_object_or_404(Event, pk=id)
-                total += quantity * event.price
+                total += quantity * event.event.price
                 booking_line_item = BookingLineItem(
                     booking=booking,
                     event=event,
@@ -38,8 +37,8 @@ def checkout(request):
                 customer = stripe.Charge.create(
                     amount=int(total * 100),
                     currency="EUR",
-                    description=request.user.email,
-                    card=payment_form.cleaned_data['stripe_id'],
+                    description=event,
+                    source=request.POST['stripeToken'],
                 )
             except stripe.error.CardError:
                 messages.error(request, 'Your card payment has been declined!')
@@ -51,10 +50,8 @@ def checkout(request):
             else:
                 messages.error(request, 'Unable to take payment')
         else:
-            print(payment_form.errors)
             messages.error(
                 request, 'We were unable to take a payment with that card!')
     else:
-        payment_form = MakePaymentForm()
         booking_form = BookingForm()
-    return render(request, 'checkout/checkout.html', {'booking_form': booking_form, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
+    return render(request, 'checkout/checkout.html', {'booking_form': booking_form, 'publishable': settings.STRIPE_PUBLISHABLE})
