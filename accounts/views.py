@@ -1,10 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import StudentRegistrationForm, StudentUpdateForm
-''', ProfileUpdateForm'''
-from .models import User
-''', Profile'''
+from .forms import StudentRegistrationForm, StudentUpdateForm, ProfileUpdateForm
+from .models import User, Profile
 
 
 def register(request):
@@ -23,31 +21,31 @@ def register(request):
     return render(request, 'accounts/register.html', {'form': form})
 
 
-# @login_required
-# def profile(request):
-#     return render(request, 'accounts/profile.html')
+@login_required
+def profile(request):
+    return render(request, 'accounts/profile.html')
 
 
-# @login_required
-# def profile_update(request):
-#     user = User.objects.all()
-#     profile = Profile.objects.all()
-#     if request.method == 'POST':
-#         su_form = StudentUpdateForm(request.POST, instance=request.user)
-#         pu_form = ProfileUpdateForm(
-#             request.POST, request.FILES, instance=request.user.profile)
-#         if su_form.is_valid() and pu_form.is_valid():
-#             su_form.save()
-#             pu_form.save()
-#             messages.success(
-#                 request, f'Your profile has been updated')
-#             return redirect('profile')
-#     else:
-#         su_form = StudentUpdateForm(instance=request.user)
-#         pu_form = ProfileUpdateForm(instance=request.user.profile)
+@login_required
+def profile_update(request):
+    user = User.objects.all()
+    profile = Profile.objects.all()
+    if request.method == 'POST':
+        su_form = StudentUpdateForm(request.POST, instance=request.user)
+        pu_form = ProfileUpdateForm(
+            request.POST, request.FILES, instance=request.user.profile)
+        if su_form.is_valid() and pu_form.is_valid():
+            su_form.save()
+            pu_form.save()
+            messages.success(
+                request, f'Your profile has been updated')
+            return redirect('profile')
+    else:
+        su_form = StudentUpdateForm(instance=request.user)
+        pu_form = ProfileUpdateForm(instance=request.user.profile)
 
-#     context = {
-#         'su_form': su_form,
-#         'pu_form': pu_form
-#     }
-#     return render(request, 'accounts/profile_update.html', context)
+    context = {
+        'su_form': su_form,
+        'pu_form': pu_form
+    }
+    return render(request, 'accounts/profile_update.html', context)
