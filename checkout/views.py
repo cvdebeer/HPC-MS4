@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.utils import timezone
 
 from events.models import Event, EventType
+from accounts.models import User
 
 from .forms import BookingForm, MakePaymentForm
 from .models import BookingLineItem
@@ -13,6 +14,7 @@ stripe.api_key = settings.STRIPE_SECRET
 
 
 def checkout(request):
+    user = User.objects.all()
     if request.method == "POST":
         booking_form = BookingForm(request.POST)
 
@@ -34,24 +36,29 @@ def checkout(request):
                 booking_line_item.save()
 
             try:
-                customer = stripe.Charge.create(
-                    amount=int(total * 100),
-                    currency="EUR",
-                    description=event,
-                    source=request.POST['stripeToken'],
-                )
+                if total == 0:
+                    messages.error(request, 'Your booking has been made')
+                    request.session['cart'] = {}
+                    return redirect(reverse('events'))
+                else:
+                    customer = stripe.Charge.create(
+                        amount=int(total * 100),
+                        currency="EUR",
+                        description=event,
+                        source=request.POST['stripeToken'],
+                    )
             except stripe.error.CardError:
                 messages.error(request, 'Your card payment has been declined!')
 
-            if customer.paid:
-                messages.error(request, 'You have successfully paid')
-                request.session['cart'] = {}
-                return redirect(reverse('events'))
+                if customer.paid:
+                    messages.error(request, 'You have successfully paid')
+                    request.session['cart'] = {}
+                    return redirect(reverse('events'))
+                else:
+                    messages.error(request, 'Unable to take payment')
             else:
-                messages.error(request, 'Unable to take payment')
-        else:
-            messages.error(
-                request, 'We were unable to take a payment with that card!')
+                messages.error(
+                    request, 'We were unable to take a payment with that card!')
     else:
         booking_form = BookingForm()
     return render(request, 'checkout/checkout.html', {'booking_form': booking_form, 'publishable': settings.STRIPE_PUBLISHABLE})
