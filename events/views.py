@@ -8,4 +8,3 @@ class EventsListView(ListView):
     template_name = 'events/events.html'
     context_object_name = 'events'
     ordering = ['date_start']
-    paginate_by = 5
