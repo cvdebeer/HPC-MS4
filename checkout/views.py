@@ -37,7 +37,7 @@ def checkout(request):
 
             try:
                 if total == 0:
-                    messages.error(request, 'Your booking has been made')
+                    messages.error(request, 'Your booking has been made!')
                     request.session['cart'] = {}
                     return redirect(reverse('events'))
                 else:

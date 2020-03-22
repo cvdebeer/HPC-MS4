@@ -35,7 +35,7 @@
 {% if user.is_authenticated and total == 0 %}
 <form role='form' method='post' id="payment-form" action="{% url 'checkout' %}">
     <legend>
-        <h3>Booking details:</h3>
+        <h3 id='book-det'>Booking details:</h3>
     </legend>
     <div id='credit-card-errors' style='display:none'>
         <div class='alert-message block-message error' id='stripe-error-message'>
@@ -43,11 +43,11 @@
     </div>
     {% csrf_token %}    
     <div class="row">
-        <div class='form-group col-md-5'>            
+        <div class='form-group form-style col-md-8'>            
             {{ booking_form|crispy }}
         </div>
     </div>
-    <button class="btn btn-info" type='submit'> Book your place</button>
+    <button class="btn btn-book" type='submit'> Book your place</button>
 </form>
 {% else %}
 <form role='form' method='post' id="payment-form" action="{% url 'checkout' %}">
