@@ -3,15 +3,15 @@
 {% block page_title %}Mailing List{% endblock %}
 {% block content %}
 <div class='container form-style'>
-    <form method="POST" >
+    <form method="POST">
         {% csrf_token %}
         <fieldset class="form-group">
             <legend class="border-bottom mb-4">Mailing List Sign Up</legend>
             {{ form|crispy }}
         </fieldset>
         <div class="form-group">
-            <button class="btn btn-info" type="submit">Sign Up</button>            
+            <button class="btn btn-info" type="submit">Sign Up</button>
         </div>
-    </form>    
+    </form>
 </div>
 {% endblock content %}

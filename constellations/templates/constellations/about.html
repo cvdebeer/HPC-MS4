@@ -1,8 +1,7 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% load static %}
-{% block page_title %}About{% endblock %} 
+{% block page_title %}About{% endblock %}
 {% block  content %}
-
 <div class="accordion" id="accordionAbout">
   <div class="card">
     <div class="card-header" id="headingOne">
@@ -13,7 +12,6 @@
         </button>
       </h2>
     </div>
-
     <div id="What" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionAbout">
       <div class="card-body">
         <p>
@@ -84,7 +82,6 @@
       </div>
     </div>
   </div>
-
   <div class="card">
     <div class="card-header" id="headingFour">
       <h2 class="mb-0">
@@ -123,9 +120,7 @@
     </div>
     <div id="Sonja" class="collapse" aria-labelledby="headingThree" data-parent="#accordionAbout">
       <div class="card-body">
-      
-      <img class='about-img' src="{% static 'img/sonja.jpg'%}" alt='Sonja'>
-      
+        <img class='about-img' src="{% static 'img/sonja.jpg'%}" alt='Sonja'>
         <p>
           Sonja Simak is the founder of Healing Point and started Family
           Constellations over 15 years ago.
