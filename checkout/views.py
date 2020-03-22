@@ -15,6 +15,7 @@ stripe.api_key = settings.STRIPE_SECRET
 
 def checkout(request):
     user = User.objects.all()
+    booking_form = BookingForm()
     if request.method == "POST":
         booking_form = BookingForm(request.POST)
 
@@ -50,15 +51,15 @@ def checkout(request):
             except stripe.error.CardError:
                 messages.error(request, 'Your card payment has been declined!')
 
-                if customer.paid:
-                    messages.error(request, 'You have successfully paid')
-                    request.session['cart'] = {}
-                    return redirect(reverse('events'))
-                else:
-                    messages.error(request, 'Unable to take payment')
+            if customer.paid:
+                messages.error(request, 'You have successfully paid!')
+                request.session['cart'] = {}
+                return redirect(reverse('events'))
             else:
-                messages.error(
-                    request, 'We were unable to take a payment with that card!')
-    else:
-        booking_form = BookingForm()
+                messages.error(request, 'Unable to take payment')
+        # else:
+        #     messages.error(
+        #             request, 'We were unable to take a payment with that card!')
+        else:
+            booking_form = BookingForm()
     return render(request, 'checkout/checkout.html', {'booking_form': booking_form, 'publishable': settings.STRIPE_PUBLISHABLE})
