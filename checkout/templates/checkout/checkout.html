@@ -13,7 +13,6 @@
 {% block content %}
 <div class='row row-flex'>
     {% for item in cart_items %}
-
     <div class='col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 panel-display'>
         <div class='panel-body'>
             <h3>{{ item.event.event.name }}</h3>
@@ -41,9 +40,9 @@
         <div class='alert-message block-message error' id='stripe-error-message'>
         </div>
     </div>
-    {% csrf_token %}    
+    {% csrf_token %}
     <div class="row">
-        <div class='form-group form-style col-md-8'>            
+        <div class='form-group form-style col-md-8'>
             {{ booking_form|crispy }}
         </div>
     </div>
@@ -58,17 +57,15 @@
         <div class='alert-message block-message error' id='stripe-error-message'>
         </div>
     </div>
-    {% csrf_token %}    
+    {% csrf_token %}
     <div class="row">
-        <div class='form-group col-md-5'>            
+        <div class='form-group col-md-5'>
             {{ booking_form|crispy }}
         </div>
     </div>
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="{{ publishable }}"
-          data-description="HealingPoint Constellations R{{total}}"
-          data-amount="{{ amount }}"
-          data-locale="auto"></script>       
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ publishable }}"
+        data-description="HealingPoint Constellations R{{total}}" data-amount="{{ amount }}" data-locale="auto">
+    </script>
 </form>
 {% endif %}
 {% endblock content %}
