@@ -3,7 +3,7 @@
 {% block content %}
 <h1>Events</h1>
 {% for event in events %}
-{% if user.is_authenticated and event.event.category == 'Training'%} 
+{% if user.is_authenticated and event.event.category == 'Training'%}
 <div class="accordian" id="Eventaccordian_{{ event.id }}">
     <div class="card mb-3">
         <div class="row no gutters events-row">
@@ -24,7 +24,6 @@
                         <li class="list-group-item  card-title">{{ event.event.name }} - {{event.event.attendee }}</li>
                         <li class="list-group-item  card-text">@{{ event.location }}</li>
                         <li class="list-group-item  card-text">{{ event.event.description }}</li>
-
                         {% if date_start == date_end %}
                         <li class="list-group-item  card-text"><small
                                 class="text-muted">{{ event.date_start|date:"M j" }} =>
@@ -84,7 +83,6 @@
                         <li class="list-group-item  card-title">{{ event.event.name }} - {{event.event.attendee }}</li>
                         <li class="list-group-item  card-text">@{{ event.location }}</li>
                         <li class="list-group-item  card-text">{{ event.event.description }}</li>
-
                         {% if date_start == date_end %}
                         <li class="list-group-item  card-text"><small
                                 class="text-muted">{{ event.date_start|date:"M j" }} =>
