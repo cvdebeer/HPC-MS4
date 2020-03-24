@@ -239,13 +239,13 @@ The following validation services were used to check the HTML and CSS code:
 - Currently I can't get the student information to pull through to the booking form automatically. I did attempt to change the model to match the information from the User model, but had no results with this either.
 - Currently unable to pull the booking information through to the User profiles. I believe that it has to do with the above bug and may need a reworking of the model.
 - The search functionality returns results, but the links on them don't actually work.
-- When you sign up for the mailing list, the check box is not mandatory even though it should be by default.
 
 #### Resolved bugs
 
 - I was having an issue with the stripe tutorial code not working for my project. I assume that the code is not complimentary to Django 3. I resolved this by using stripe's own elements, and adjusting the code to make it work from a tutorial I found by [testdriven](https://testdriven.io/blog/django-stripe-tutorial/).
 - The search functionality from the CI tutorials was also not working, and so I found a tutorial that used multiple table searches, which is working adaquately. [CodingEntrepreneurs](https://kirr.co/pcwb3f)
 - I was having an issue with my Profile breaking my User and not being able to log into the admin again. I had delete my profile model and all related calls and delete my database every time. This happened a couple of times, and I finely found that some code that I had copied from a tutorial had an error in it, which was breaking it. This code was removed from the project and seems to be working fine now.
+- I was having an issue where when you signed up for the mailing list you didn't need to check the terms and conditions box in order to sign up. This seemed to be an issue with setting up the form, which I managed to resolve by adjusting it slightly.
 
 ## ![logo](https://hpc-ms4.s3-eu-west-1.amazonaws.com/static/img/hpc_tiny.png) Deployment
 
