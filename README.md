@@ -1,4 +1,4 @@
-# ![logo](static/img/hpc_tiny.png) HealingPoint Constellations - MS4 project
+# ![logo](https://hpc-ms4.s3-eu-west-1.amazonaws.com/static/img/hpc_tiny.png) HealingPoint Constellations - MS4 project
 
 Travis Testing
 [![Build Status](https://travis-ci.org/cvdebeer/HPC-MS4.svg?branch=master)](https://travis-ci.org/cvdebeer/HPC-MS4)
@@ -43,7 +43,7 @@ She is also wanting seperate what visitors to the site can see as there has been
    - [Code](#code)
    - [Acknowledgements](#acknowledgements)
 
-## ![logo](static/img/hpc_tiny.png) UX
+## ![logo](https://hpc-ms4.s3-eu-west-1.amazonaws.com/static/img/hpc_tiny.png) UX
 
 ---
 
@@ -127,7 +127,7 @@ My wireframes were created using [Balsamiq](https://balsamiq.com/) during the Sc
 
 [Click here to go to the Mockup](https://hpc-ms4.s3-eu-west-1.amazonaws.com/hpc.pdf)
 
-## ![logo](static/img/hpc_tiny.png) Features
+## ![logo](https://hpc-ms4.s3-eu-west-1.amazonaws.com/static/img/hpc_tiny.png) Features
 
 ---
 
@@ -161,7 +161,7 @@ My wireframes were created using [Balsamiq](https://balsamiq.com/) during the Sc
 
 The local storage is used to store an instance of the cart for as long as the user is busy in a session.
 
-## ![logo](static/img/hpc_tiny.png) Technologies Used
+## ![logo](https://hpc-ms4.s3-eu-west-1.amazonaws.com/static/img/hpc_tiny.png) Technologies Used
 
 ---
 
@@ -181,7 +181,7 @@ The local storage is used to store an instance of the cart for as long as the us
 - [Github](https://github.com/) was used to store the project code remotely.
 - [CorelDraw X8](https://www.coreldraw.com/) used to manipulate the brand image to match the colour of the logo.
 
-## ![logo](static/img/hpc_tiny.png) Testing
+## ![logo](https://hpc-ms4.s3-eu-west-1.amazonaws.com/static/img/hpc_tiny.png) Testing
 
 ---
 
@@ -247,7 +247,7 @@ The following validation services were used to check the HTML and CSS code:
 - The search functionality from the CI tutorials was also not working, and so I found a tutorial that used multiple table searches, which is working adaquately. [CodingEntrepreneurs](https://kirr.co/pcwb3f)
 - I was having an issue with my Profile breaking my User and not being able to log into the admin again. I had delete my profile model and all related calls and delete my database every time. This happened a couple of times, and I finely found that some code that I had copied from a tutorial had an error in it, which was breaking it. This code was removed from the project and seems to be working fine now.
 
-## ![logo](static/img/hpc_tiny.png) Deployment
+## ![logo](https://hpc-ms4.s3-eu-west-1.amazonaws.com/static/img/hpc_tiny.png) Deployment
 
 ---
 
@@ -334,7 +334,7 @@ I also created an application on Heroku and the project was deployed there [Hero
 
 You can now view your project either via the "open app" button on Heroku, or by using the generated url in Heroku.
 
-## ![logo](static/img/hpc_tiny.png) Credits
+## ![logo](https://hpc-ms4.s3-eu-west-1.amazonaws.com/static/img/hpc_tiny.png) Credits
 
 ---
 
