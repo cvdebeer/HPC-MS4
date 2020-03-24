@@ -229,8 +229,8 @@ Test were also written for the models in Django's test files. These were all pas
 The following validation services were used to check the HTML and CSS code:
 
 - [W3C Validator](https://validator.w3.org/) was used for the HTML.
-- [W3C Jigsaw](https://jigsaw.w3.org/css-validator/) was used to check the CSS
-  Built in extension of Prettier was used during development to help keep the code as clean and ordered as possible.
+- [W3C Jigsaw](https://jigsaw.w3.org/css-validator/) was used to check the CSS.
+- The VSCode extension of Prettier was used during development to help keep the code as clean and ordered as possible.
 
 ### Bugs
 
@@ -270,7 +270,7 @@ I also created an application on Heroku and the project was deployed there [Hero
 5.  Change the current working directory to the location where you want the cloned directory to be made.
 6.  Type 'git clone', and then paste the URL you copied in Step 3.
 
-        -git clone https://github.com/USERNAME/REPOSITORY
+         - git clone https://github.com/USERNAME/REPOSITORY
 
 7.  Press Enter. Your local clone should be created.
 8.  You will want to ensure that Python is installed on your IDE and that you install the dependencies in order to get the project to run(make sure that you are running a virtual environment).
