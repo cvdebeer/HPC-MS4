@@ -1,6 +1,8 @@
 from django.db.models.signals import post_save
-from .models import User, Profile
 from django.dispatch import receiver
+
+from .models import Profile, User
+
 
 '''
 This code comes from the tutorial by Corey Schafer - https://www.youtube.com/watch?v=FdVuKt_iuSI
