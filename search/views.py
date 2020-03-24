@@ -1,9 +1,12 @@
 from itertools import chain
-from django.views.generic import ListView
-from django.shortcuts import render, get_object_or_404
-from django.utils import timezone
+
 from django.db.models import Q
+from django.shortcuts import get_object_or_404, render
+from django.utils import timezone
+from django.views.generic import ListView
+
 from events.models import Event, EventType
+
 
 '''
 The entire Search app was copied and adjusted for this project from a tutorial by codingforentrepeneurs.com - https://www.codingforentrepreneurs.com/blog/a-multiple-model-django-search-engine/
