@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Event, EventType, AttendeeType
+from django.shortcuts import get_object_or_404, render
 from django.views.generic import ListView
+
+from .models import AttendeeType, Event, EventType
 
 
 class EventsListView(ListView):

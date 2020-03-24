@@ -1,5 +1,6 @@
 from django.test import TestCase
-from .models import Event, EventType, AttendeeType
+
+from .models import AttendeeType, Event, EventType
 
 
 class TestAttendeeType(TestCase):
