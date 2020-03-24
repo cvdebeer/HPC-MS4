@@ -216,7 +216,7 @@ Firefox - All the features were working.
 
 #### Device testing
 
-This was tested on my Iphone and Ipad. Everything worked as expected.
+This was tested on multiple devices, including Iphone, Ipad, Android, tablets and phones. Working as expected on all devices. No issues reported.
 
 ### Automated Testing
 
