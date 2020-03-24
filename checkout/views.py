@@ -4,8 +4,8 @@ from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.utils import timezone
 
-from events.models import Event, EventType
 from accounts.models import User
+from events.models import Event, EventType
 
 from .forms import BookingForm, MakePaymentForm
 from .models import BookingLineItem
